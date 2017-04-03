@@ -82,6 +82,30 @@ app.get('/', function (request, response){
 	});
 })
 
+
+
+app.post('/', function (request, response){
+	user = request.session.user
+	if(user === undefined) {
+		response.redirect('/login')
+	}
+	else {
+		response.redirect('/offers')
+	}
+})
+
+
+// route for specific country
+app.get('/offers/:city', (req, res) => {
+	console.log(req.params.city)
+	// db.Destination.findOne({where: {country: country}}).then( country => {
+	// 	console.log(country)
+	// 	res.render('country_detail.pug', {country: country})
+
+	// })
+	
+})
+
 // LOG IN
 app.get('/login', function (request, response){
 	response.render('login', {
@@ -166,20 +190,20 @@ app.post('/newplant', bodyParser.urlencoded({extended: true}), function(request,
 
 // VIEW A SPECIFIC PLANT
 app.get('/grabplant', (request, response) => {
-    console.log(request.query.id)
-    user = request.session.user;
-    db.Plant.findOne({
-        where: {
-            id: request.query.id
-        },    
+	console.log(request.query.id)
+	user = request.session.user;
+	db.Plant.findOne({
+		where: {
+			id: request.query.id
+		},    
 		include: [db.User]
-    })
-    .then((onePlant) => {
-        console.log('this logges data of specific post')
-        console.log(onePlant)
-        response.render('grabplant', {
-        	onePlant:onePlant})
-    })
+	})
+	.then((onePlant) => {
+		console.log('this logges data of specific post')
+		console.log(onePlant)
+		response.render('grabplant', {
+			onePlant:onePlant})
+	})
 })
 
 

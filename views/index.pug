@@ -11,11 +11,11 @@ block content
                             .home-content
                                 h1#homeHeading Wil jij je eigen stekje?
                                 hr
-                                h2 Bekijk of iemand in je buurt een stekje over heeft!
+                                h2 Bekijk of iemand in je buurt een stekje wilt delen!
 
                                
 
-                                form.adress
+                                form.adress(action='/', method='post')
                                     select(name='homecity')
                                         option(value='Amsterdam' name='Amsterdam') Amsterdam
                                         option(value='Rotterdam' name= 'Rotterdam') Rotterdam

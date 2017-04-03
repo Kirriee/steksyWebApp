@@ -7,19 +7,17 @@ block content
 				.head_title.text-center
 					h1 
 						span(style='color:#82ca9c;font-weight:bold')  #{onePlant.plantName}
-					p
-						strong Aangeboden door: 
-						| #{onePlant.user.userName}:
-					p
-						strong Omschrijving: 
-						| #{onePlant.description}
+					p(class="") Aangeboden door: 
+						| #{onePlant.user.userName} in #{onePlant.user.city}
 					
-					p 
-						strong Aangeboden op: 
-						| #{onePlant.createdAt}
+					strong Omschrijving: 
+					br
+					span #{onePlant.description}
+					
+					
 						
-						button.form-button Ja die wil ik!
-						
+						button.form-button.yes Ja die wil ik!
+
 
 
 	//- .container.offers
